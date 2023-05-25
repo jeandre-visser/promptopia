@@ -7,16 +7,16 @@ import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
     };
-    setProviders();
+    setUpProviders();
   }, []);
 
   return (
@@ -33,7 +33,7 @@ const Nav = () => {
       </Link>
       {/* DESKTOP NAVIGATION */}
       <div className='sm:flex hidden'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link href='/create-prompt' className='black_btn'>
               Create Post
@@ -43,11 +43,11 @@ const Nav = () => {
             </button>
             <Link href='/profile'>
               <Image
-                src='/assets/images/logo.svg'
+                src={session?.user?.image}
                 alt='Profile'
                 width={37}
                 height={37}
-                className='object-contain'
+                className='object-contain rounded-full'
               />
             </Link>
           </div>
@@ -61,7 +61,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className='black_btn'
                 >
-                  Sign in with {provider.name}
+                  Sign In
                 </button>
               ))}
           </>
@@ -70,14 +70,14 @@ const Nav = () => {
 
       {/* MOBILE NAVIGATION */}
       <div className='sm:hidden flex relative'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
-              src='/assets/images/logo.svg'
+              src={session?.user?.image}
               alt='Profile'
               width={37}
               height={37}
-              className='object-contain'
+              className='object-contain rounded-full'
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
             {toggleDropdown && (
@@ -119,7 +119,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className='black_btn'
                 >
-                  Sign in with {provider.name}
+                  Sign In
                 </button>
               ))}
           </>
