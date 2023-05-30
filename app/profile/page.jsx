@@ -23,7 +23,7 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name='My Name'
+      name={'My '}
       desc='Welcome to your profile page!'
       data={posts}
       handleEdit={handleEdit}
