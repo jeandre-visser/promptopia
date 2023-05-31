@@ -6,7 +6,7 @@ Check out the web app [here](https://github.com/)
 
 ### Guick Glimpse
 
-![Dashboard](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/profile.png)
+![Dashboard](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/dashboard.png)
 
 ![Profile](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/profile.png)
 
