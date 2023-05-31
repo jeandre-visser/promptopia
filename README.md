@@ -6,6 +6,12 @@ Check out the web app [here](https://github.com/)
 
 ### Guick Glimpse
 
+![Dashboard](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/profile.png)
+
+![Profile](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/profile.png)
+
+![Edit_Post](https://github.com/jeandre-visser/promptopia/blob/main/public/assets/images/edit_post.png)
+
 ### Tech Stack
 
 - Next.js
